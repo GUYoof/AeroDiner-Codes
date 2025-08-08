@@ -180,7 +180,7 @@ public void PlaceObject(FoodData data)
 - 자동/패시브 모드별로 처리 방식 분기.
 
 ### 4. BaseStation – 레시피 후보 갱신
----
+```
 private void UpdateCandidateRecipes()
 {
     var currentIds = currentIngredients;
@@ -209,6 +209,6 @@ private void UpdateCandidateRecipes()
         }
     }
 }
----
+```
 - 현재 재료로 만들 수 있는 레시피를 전부 검색 후 최고 일치율 레시피를 선택.
 - 다음에 넣을 수 있는 재료 ID 리스트(availableFoodIds)도 업데이트.
