@@ -173,3 +173,13 @@ public static class StationRecipeAssigner
 }
 ```
 - 에디터 메뉴에서 클릭 한 번으로 모든 StationData에 레시피를 일괄 매칭하는 코드.
+
+## 🔥에디터 활용 스크린샷
+### 1. StationManagerEditor.cs
+<img width="489" height="192" alt="image" src="https://github.com/user-attachments/assets/d26e8683-3efb-4d2a-b00e-e5d91d33048a" />
+
+- 버튼 클릭시 자동으로 프리팹을 로드하여 할당
+<img width="488" height="801" alt="image" src="https://github.com/user-attachments/assets/509756ee-34db-4a4c-aa8d-7e968e48fdec" />
+
+### 2. StationRecipeAssigner.cs
+<img width="481" height="149" alt="image" src="https://github.com/user-attachments/assets/6c686f97-f961-40bf-8174-88e77dff5db8" />
