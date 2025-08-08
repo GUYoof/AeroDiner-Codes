@@ -2,7 +2,8 @@
 - 스테이션이 동작하면서 필요한 기능들을 따로 관리하는 스크립트들 입니다.
 
 ## 📂 폴더 구조
-📂 Scripts
+```
+Scripts
  ├── ChangeSprite.cs                // 설비의 시각(스프라이트) 상태 전환 담당
  ├── CookingTimer.cs                // 음식별 조리 시간(타이머) 로직 (비-MonoBehaviour 유틸)
  ├── FoodIconLibrary.cs             // FoodType → 아이콘 Sprite 매핑 제공하는 정적 라이브러리
@@ -10,6 +11,7 @@
  ├── OutlineShaderController.cs     // SpriteRenderer의 쉐이더 외곽선(Outline) On/Off 제어
  ├── StationSFXResolver.cs          // StationData를 SFXType으로 변환하는 매핑 유틸
  └── StationTimerController.cs      // 남은 조리시간에 따라 타이머 UI 이미지 갱신 및 캔버스 정렬
+```
 
 ## 🎯 핵심 기능의 설계 특징
 ### 1. 시각(Visual) 처리의 분리와 최소 오버헤드
