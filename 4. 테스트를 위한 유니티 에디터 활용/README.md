@@ -1,18 +1,36 @@
 # 테스트를 위한 유니티 에디터 활용
+- 스테이션을 구현하면서 기틍을 테스트 하기거나 런타임 중 현재 재료 상태 기반 최적 레시피 및 유효 재료 목록 산출하기 위해 사용
 
 ##  📂 폴더 구조
 ```
 /Editor
- ├─ KeyRebindButtonEditor.cs
- ├─ PlacementManagerEditor.cs
- ├─ StationIngredientViewerEditor.cs
- ├─ StationRecipeAssigner.cs
+ ├─ KeyRebindButtonEditor.cs         // 버튼 이름 기반 자동 입력 인덱스 매핑 기능 제공
+ ├─ PlacementManagerEditor.cs        // 배치 가능한 셀 표시·테스트용 장애물 생성·설비 배치 시도 기능 제공
+ ├─ StationEditor.cs                 // 현재 재료 목록 기반 레시피 미리보기 기능 제공
+ ├─ StationIngredientViewerEditor.cs // 특정 스테이션의 현재 재료 정보와 상태를 인스펙터에서 실시간 확인
+ ├─ StationManagerEditor.cs          // 지정 폴더의 스테이션 프리팹을 자동 로드하여 할당
+ ├─ StationRecipeAssigner.cs         // 모든 스테이션 데이터에 해당 유형 레시피를 일괄 할당하는 메뉴 기능
+ ├─ TilemapControllerEditor.cs       // 타일맵 셀 표시·숨김 버튼 제공
+
 /Runtime
- ├─ PrintCurrentIngredients.cs
- ├─ RecipePreviewer.cs
+ ├─ PrintCurrentIngredients.cs       // StationManager와 연동해 현재 재료 목록과 검사 결과를 유지·출력
+ ├─ RecipePreviewer.cs               // 현재 재료 상태 기반 최적 레시피 및 유효 재료 목록 산출
+ ├─ TestInventory.cs                 // 플레이어가 들고 있는 아이템을 테스트 환경에서 가상 설정
 ```
 
 ## 🎯 핵심 기능의 설계 특징
+- 에디터 확장 자동화
+ - /Editor 폴더의 스크립트들은 Unity 에디터 전용으로, 게임 실행 없이도 데이터 세팅과 기능 검증이 가능하도록 설계.
+ - 반복 수작업 최소화를 위해 메뉴 버튼(MenuItem)과 인스펙터 버튼을 제공.
+ - 스테이션, 레시피, 배치 시스템, 입력 키 매핑 등 다양한 기능을 한 번에 설정 가능.
+
+- 런타임 연동 디버깅
+ - /Runtime 폴더의 스크립트들은 실제 플레이 환경에서 동작하며, StationManager나 RecipeManager와 직접 연결.
+ - 인게임 데이터 상태를 즉시 분석하고 시각화하여 개발·테스트를 빠르게 진행 가능.
+
+- 데이터·기능 분리 구조
+ - /Editor는 개발 편의 및 데이터 준비 중심, /Runtime은 게임 로직 실행 중심.
+ - 빌드 시 Editor 전용 스크립트가 포함되지 않도록 Unity의 폴더 구조 규칙을 준수.
 
 ## 📌 핵심 코드 예시
 ### KeyRebindButtonEditor.cs
@@ -154,4 +172,4 @@ public static class StationRecipeAssigner
     }
 }
 ```
-
+- 에디터 메뉴에서 클릭 한 번으로 모든 StationData에 레시피를 일괄 매칭하는 코드.
