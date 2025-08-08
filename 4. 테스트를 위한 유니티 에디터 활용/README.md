@@ -12,9 +12,9 @@
  ├─ RecipePreviewer.cs
 ```
 
-🎯 핵심 기능의 설계 특징
+## 🎯 핵심 기능의 설계 특징
 
-📌 핵심 코드 예시
+## 📌 핵심 코드 예시
 ### KeyRebindButtonEditor.cs
 ```
 [CustomEditor(typeof(KeyRebindButton))]
